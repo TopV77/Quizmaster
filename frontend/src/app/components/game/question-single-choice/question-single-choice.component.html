@@ -1,0 +1,68 @@
+<div class="mb-5">
+  <div class="text-center">
+    <h3 class="fs-4 text-primary-emphasis mb-3">{{ currentQuestion.questionType }}</h3>
+  </div>
+
+
+  <form (ngSubmit)="submit()">
+    <div [formGroup]="form" class="container">
+      <div class="row g-3">
+        <div class="col-12 col-sm-6">
+          <label for="answerA" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+            <input
+              id="answerA"
+              type="radio"
+              [value]="'A'"
+              formControlName="answerGiven"
+              class="form-check-input me-2"
+            />
+            A: {{ currentQuestion.answerA }}
+          </label>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="answerB" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+            <input
+              id="answerB"
+              type="radio"
+              [value]="'B'"
+              formControlName="answerGiven"
+              class="form-check-input me-2"
+            />
+            B: {{ currentQuestion.answerB }}
+          </label>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="answerC" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+            <input
+              id="answerC"
+              type="radio"
+              [value]="'C'"
+              formControlName="answerGiven"
+              class="form-check-input me-2"
+            />
+            C: {{ currentQuestion.answerC }}
+          </label>
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="answerD" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+            <input
+              id="answerD"
+              type="radio"
+              [value]="'D'"
+              formControlName="answerGiven"
+              class="form-check-input me-2"
+            />
+            D: {{ currentQuestion.answerD }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  <div class="text-center mt-5">
+    <button class="btn btn-outline-secondary me-2 mb-2" (click)="submit()"><i
+      class="fa-solid fa-arrow-right fs-6 me-2"></i>Submit
+    </button>
+  </div>
+</div>

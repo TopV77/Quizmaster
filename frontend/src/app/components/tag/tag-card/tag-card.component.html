@@ -1,0 +1,9 @@
+<div class="card text-center border-primary p-2 h-100" *ngIf="tag">
+  <div class="card-header bg-transparent">
+    <h4 class="card-title">{{ tag.name }}</h4>
+  </div>
+  <div class="card-footer bg-transparent pt-3">
+    <app-edit url="/tag/edit" [itemId]="tag.id!"></app-edit>
+    <app-details url="/tag" [itemId]="tag.id!"></app-details>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="mb-5">
+  <div class="text-center">
+    <h3 class="fs-4 text-primary-emphasis mb-3">{{ currentQuestion.questionType }}</h3>
+  </div>
+
+
+  <form [formGroup]="answerForm" class="container">
+    <div class="row g-3">
+      <!-- Antwort A -->
+      <div class="col-12 col-sm-6">
+        <label for="answerA" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <input
+            id="answerA"
+            type="checkbox"
+            formControlName="answerA"
+            class="form-check-input me-2"
+          />
+          A: {{ currentQuestion.answerA }}
+        </label>
+      </div>
+      <!-- Antwort B -->
+      <div class="col-12 col-sm-6">
+        <label for="answerB" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <input
+            id="answerB"
+            type="checkbox"
+            formControlName="answerB"
+            class="form-check-input me-2"
+          />
+          B: {{ currentQuestion.answerB }}
+        </label>
+      </div>
+      <!-- Antwort C -->
+      <div class="col-12 col-sm-6">
+        <label for="answerC" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <input
+            id="answerC"
+            type="checkbox"
+            formControlName="answerC"
+            class="form-check-input me-2"
+          />
+          C: {{ currentQuestion.answerC }}
+        </label>
+      </div>
+      <!-- Antwort D -->
+      <div class="col-12 col-sm-6">
+        <label for="answerD" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <input
+            id="answerD"
+            type="checkbox"
+            formControlName="answerD"
+            class="form-check-input me-2"
+          />
+          D: {{ currentQuestion.answerD }}
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="text-center mt-5">
+    <button class="btn btn-outline-secondary me-2 mb-2" (click)="setSelectedAnswer()"><i
+      class="fa-solid fa-arrow-right fs-6 me-2"></i>Submit
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+input.color-selection {
+  width: 30px;
+  height: 30px;
+}
+
+.form-check-input:checked[type="radio"] {
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M6.173 13.998l-4.47-4.471 1.414-1.414 3.056 3.057 6.713-6.713 1.414 1.414z'/%3E%3C/svg%3E ");
+}

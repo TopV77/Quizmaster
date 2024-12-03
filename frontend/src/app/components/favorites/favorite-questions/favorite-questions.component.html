@@ -1,0 +1,12 @@
+<section>
+  <div class="container my-5 pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fs-2">Favorite Questions</h2>
+      <div>
+        <app-create url="/question/create" text="Create Question" [useIcon]="true"></app-create>
+        <app-start></app-start>
+      </div>
+    </div>
+    <app-questions-table [questions]="favorites" mode="fav"></app-questions-table>
+  </div>
+</section>

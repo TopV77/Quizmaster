@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2>{{ id ? 'Update tag' : 'Create new tag' }}</h2>
+
+  <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="col-12">
+      <label for="name" class="form-label">Name*</label>
+      <input class="form-control" type="text" id="name" formControlName="name"
+             [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
+      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
+        Name is required
+      </div>
+    </div>
+
+    <div class="col-12" *ngIf="hasNoQuestions && id > 0">
+      <div class="alert alert-info" role="alert">You can assign tags to questions as follows. Question -> Edit ->
+        Tag dropdown
+      </div>
+    </div>
+
+    <div class="col-12" *ngIf="!hasNoQuestions && id > 0">
+      <div class="alert alert-info" role="alert">You can only delete a tag if no questions are assigned. Questions ->
+        Edit -> Tag dropdown. You can find the assigned tags on <a [routerLink]="['/tag', id]">tag
+          details pages</a>.
+      </div>
+    </div>
+
+    <div class="col-12 mt-5">
+      <app-back></app-back>
+      <app-delete [itemId]="id" mode="tag" *ngIf="id > 0 && hasNoQuestions"></app-delete>
+      <app-save [disabled]="form.invalid"></app-save>
+    </div>
+
+  </form>
+</div>

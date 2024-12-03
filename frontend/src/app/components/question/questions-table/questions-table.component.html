@@ -1,0 +1,37 @@
+<div class="table-responsive">
+  <table class="table align-middle text-center">
+    <thead class="table-primary">
+    <tr>
+      <th class="hide-col" scope="col">Id</th>
+      <th class="text-start limited-column" scope="col">Question</th>
+      <th class="hide-col" scope="col">Question Type</th>
+      <th class="hide-col" scope="col" *ngIf="mode === 'default'">Favorite</th>
+      <th class="hide-action" scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+      *ngFor="let question of questions; let i = index"
+      [ngClass]="{ 'table-active': i % 2 === 0, 'table-dark': i % 2 !== 0 }"
+    >
+      <td class="py-3 hide-col">{{ question.id }}</td>
+      <td class="py-3 text-start limited-column">
+        <div><span class="pointer" [routerLink]="['/question', question.id]">{{ question.question }}</span></div>
+        <div>
+          <span *ngFor="let tag of question.tags" class="badge bg-info me-1">{{ tag.name }}</span>
+        </div>
+      </td>
+      <td class="py-3 hide-col">{{ question.questionType }}</td>
+      <td class="hide-col"  *ngIf="mode === 'default'">
+        <i class="fa-solid fa-heart text-danger fs-3" *ngIf="question.isFavorite"></i>
+      </td>
+      <td class="hide-action">
+        <div class="d-flex justify-content-center mt-2">
+          <app-edit url="/question/edit" [itemId]="question.id!"></app-edit>
+          <app-details url="/question" [itemId]="question.id!"></app-details>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

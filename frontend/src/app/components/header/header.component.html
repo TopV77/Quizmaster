@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg bg-primary align-content-center">
+  <div class="container">
+    <a class="navbar-brand d-flex" routerLink="/home">
+      <img ngSrc="/assets/icon.png" alt="QuizMaster logo" width="56" height="60" />
+      <span class="logo fs-2 ms-2 fw-bold align-self-center">QUIZMASTER</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="headerNav" #navbarCollapse>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/home" [routerLinkActive]="['active']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/categories" [routerLinkActive]="['active']">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/quizzes" [routerLinkActive]="['active']">Quizzes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/questions" [routerLinkActive]="['active']">Questions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/tags" [routerLinkActive]="['active']">Tags</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/favorites" [routerLinkActive]="['active']">Favorites</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

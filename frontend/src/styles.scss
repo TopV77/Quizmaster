@@ -1,0 +1,44 @@
+@import "../node_modules/bootswatch/dist/vapor/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootswatch/dist/vapor/bootswatch";
+
+
+.card {
+  border-radius: 16px;
+}
+
+.card:hover {
+  --bs-bg-opacity: 0.3;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity))
+}
+
+.btn {
+  border-radius: 4px;
+  min-width: 88px;
+}
+
+.nav-link {
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  color: var(--bs-navbar-hover-color);
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead th {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.logo {
+  color: white;
+  text-shadow: 0 0 5px #32fbe2, 0 0 10px #32fbe2, 0 0 20px #32fbe2, 0 0 30px #32fbe2;
+}

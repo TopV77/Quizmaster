@@ -1,0 +1,35 @@
+<section>
+  <div class="container my-5">
+
+    <div class="row mb-4">
+      <div class="col-12 col-md-4">
+        <h1 class="fs-2">Questions</h1>
+      </div>
+      <div class="col-12 col-md-8 mt-3 mt-md-0">
+        <div class="d-flex align-items-center justify-content-md-end justify-content-start gap-2">
+          <!-- Dropdown Menü -->
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle mb-2" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              Question type: {{ selectedFilter }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" (click)="filterQuestions('All')">All</a></li>
+              <li><a class="dropdown-item" (click)="filterQuestions('Multiple Choice')">Multiple Choice</a></li>
+              <li><a class="dropdown-item" (click)="filterQuestions('Single Choice')">Single Choice</a></li>
+              <li><a class="dropdown-item" (click)="filterQuestions('Text Input')">Text Input</a></li>
+            </ul>
+          </div>
+
+          <!-- Add New Question Button -->
+          <app-create url="/question/create" text="Create Question" [useIcon]="true"></app-create>
+        </div>
+      </div>
+
+
+    </div>
+
+    <app-questions-table [questions]="filteredQuestions"></app-questions-table>
+  </div>
+
+</section>

@@ -1,0 +1,23 @@
+<div class="card text-center border-primary p-2 h-100" *ngIf="quiz">
+  <div class="card-header bg-transparent"><h4 class="card-title">{{ quiz.name }}</h4>
+    <div class="card-text badge" [ngStyle]="{'background-color': quizCategoryColor}" *ngIf="quiz.category">
+      {{ quiz.category.name || 'No category name' }}
+    </div>
+  </div>
+  <div class="card-body p-3 mb-1">
+    <p class="card-text" [ngClass]="{ 'fst-italic': !quiz.description }">
+      {{ quiz.description || 'No description available' }}
+    </p>
+    <p [class]="quiz.questionSize === 0 ? 'card-text text-danger' : 'card-text'">
+      <strong>Questions:</strong> {{ quiz.questionSize }}
+    </p>
+    <p>
+      <i class="fa-solid fa-heart text-danger fs-3" *ngIf="quiz.isFavorite"></i>
+    </p>
+  </div>
+  <div class="card-footer bg-transparent pt-3">
+    <app-edit url="/quiz/edit" [itemId]="quiz.id!"></app-edit>
+    <app-details url="/quiz" [itemId]="quiz.id!"></app-details>
+    <app-start [quiz]="quiz"></app-start>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.table thead th {
+  font-size: 1rem;
+}
+
+table td {
+  font-size: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hide-col {
+  display: none;
+}
+
+.hide-action {
+  display: none;
+}
+
+.limited-column {
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .hide-action {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 992px) {
+  .hide-col {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 1200px) {
+  .table thead th {
+    font-size: 1.5rem;
+  }
+
+  table td {
+    font-size: 1.15rem;
+  }
+}

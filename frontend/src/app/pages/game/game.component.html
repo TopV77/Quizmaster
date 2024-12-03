@@ -1,0 +1,83 @@
+<section class="bg-dark" *ngIf="gameInfo">
+  <div class="container py-5">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-12 col-md-9 col-lg-10">
+        <h2 class="badge bg-primary fs-4 text-white mb-0">{{ gameInfo.category }}</h2>
+        <h1 class="display-5">{{ gameInfo.name }}</h1>
+        <p class="lead fs-3">{{ gameInfo.description }}</p>
+      </div>
+
+      <div class="col-12 col-md-3 col-lg-2">
+        <img src="assets/HeroForHome.jpg" alt="Hero" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div>
+    <div id="quiz-box" class="border border-2 border-primary rounded-3 my-5 p-5">
+      <div class="row justify-content-center align-items-center">
+
+        <div
+          *ngIf="currentQuestions[questionPointer] && !(this.questionPointer === this.currentQuestions.length); else finalScreen">
+
+          <h3 class="text-center mb-4">{{ currentQuestions[questionPointer].question }}</h3>
+
+          <!-- Single Choice -->
+          <app-question-single-choice
+            *ngIf="currentQuestions[questionPointer].questionType === 'Single Choice'"
+            [currentQuestion]="currentQuestions[questionPointer]"
+            (submitSelectedAnswer)="onAnswerSubmitted($event)"
+          ></app-question-single-choice>
+
+          <!-- Multiple Choice -->
+          <app-question-multiple-choice
+            *ngIf="currentQuestions[questionPointer].questionType === 'Multiple Choice'"
+            [currentQuestion]="currentQuestions[questionPointer]"
+            (answerSelected)="onAnswerSubmitted($event)"
+          ></app-question-multiple-choice>
+
+          <!-- Text Input -->
+          <app-question-text-input
+            *ngIf="currentQuestions[questionPointer].questionType === 'Text Input'"
+            [currentQuestion]="currentQuestions[questionPointer]"
+            (submitSelectedAnswer)="onAnswerSubmitted($event)"
+          ></app-question-text-input>
+
+          <div class="text-center bg-transparent">
+            Question: {{ questionPointer + 1 }} / {{ currentQuestions.length }}
+          </div>
+
+        </div>
+
+
+        <!-- Final Screen -->
+        <ng-template #finalScreen>
+          <h3 class="fs-2 mb-4">Quiz Results</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tbody>
+              <tr *ngFor="let answer of answersGiven; let i = index">
+                <!-- Frage Details -->
+                <td class="text-start">
+                  <p class="mb-2">
+                    <strong>Question {{ i + 1 }}:</strong> {{ answer.question }}
+                  </p>
+                  <p class="mb-2">
+                    <strong>Correct answer:</strong> {{ answer.correctAnswer }}
+                  </p>
+                  <p [class.text-success]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                    <strong>Your answer:</strong> {{ answer.answerGiven }}
+                  </p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</section>

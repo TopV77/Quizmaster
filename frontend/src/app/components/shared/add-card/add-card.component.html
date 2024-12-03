@@ -1,0 +1,13 @@
+<div class="card text-center border-primary p-2 h-100">
+  <div class="d-flex flex-column h-100">
+    <div class="card-header bg-transparent">
+      <h4 class="card-title">Create new {{ mode }}</h4>
+    </div>
+    <div class="card-body flex-fill justify-content-center align-content-center" *ngIf="mode !== 'tag'">
+        <i [routerLink]="setLinkUrl(mode)" class="fa-solid fa-plus display-3 pointer"></i>
+    </div>
+    <div class="card-footer bg-transparent pt-3">
+      <app-create [url]="setLinkUrl(mode)"></app-create>
+    </div>
+  </div>
+</div>
