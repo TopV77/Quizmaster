@@ -18,18 +18,18 @@ export class CategoryFormComponent {
   hasNoQuizzes: boolean = true;
 
   colorsList: { id: number, hex: string }[] = [
-    {id: 1, hex: '#2E2E3A'},
-    {id: 2, hex: '#4C4C4C'},
-    {id: 3, hex: '#2C3E50'},
-    {id: 4, hex: '#008080'},
-    {id: 5, hex: '#00008B'},
-    {id: 6, hex: '#013220'},
-    {id: 7, hex: '#006400'},
-    {id: 8, hex: '#7A1C1C'},
+    {id: 1, hex: '#0808EB'},
+    {id: 2, hex: '#E32525'},
+    {id: 3, hex: '#0C75DE'},
+    {id: 4, hex: '#50D7D7'},
+    {id: 5, hex: '#04DADA'},
+    {id: 6, hex: '#0DDD91'},
+    {id: 7, hex: '#08CD08'},
+    {id: 8, hex: '#E94D4D'},
     {id: 9, hex: '#A34700'},
-    {id: 10, hex: '#8E0F5E'},
-    {id: 11, hex: '#5C005C'},
-    {id: 12, hex: '#5C4A06'}
+    {id: 10, hex: '#DE1B94'},
+    {id: 11, hex: '#F040D5'},
+    {id: 12, hex: '#CEA407'}
   ];
 
 

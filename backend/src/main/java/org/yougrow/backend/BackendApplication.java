@@ -41,10 +41,10 @@ public class BackendApplication {
 
                 // Categories
                 List<Category> categories = Arrays.asList(
-                        new Category("Science", "'Science is organized knowledge'. – Herbert Spencer", encodedPassword, "#2C3E50"),
-                        new Category("History", "Explore key moments and figures from history. Challenge your knowledge and uncover fascinating facts!", encodedPassword, "#2E2E3A"),
-                        new Category("Sports", "Test your knowledge of sports, athletes, and iconic moments from around the world.", encodedPassword, "#00008B"),
-                        new Category("Technology", "Discover the coolest tech innovations and trends shaping the future.", encodedPassword, "#013220"),
+                        new Category("Science", "'Science is organized knowledge'. – Herbert Spencer", encodedPassword, "#0C75DE"),
+                        new Category("History", "Explore key moments and figures from history. Challenge your knowledge and uncover fascinating facts!", encodedPassword, "#0808EB"),
+                        new Category("Sports", "Test your knowledge of sports, athletes, and iconic moments from around the world.", encodedPassword, "#04DADA"),
+                        new Category("Technology", "Discover the coolest tech innovations and trends shaping the future.", encodedPassword, "#0DDD91"),
                         new Category("Entertainment", "This category dives into the world of movies, music, and pop culture, testing your knowledge of iconic moments and famous personalities.", encodedPassword, "#A34700")
                 );
                 categories.forEach(categoryService::addCategory);

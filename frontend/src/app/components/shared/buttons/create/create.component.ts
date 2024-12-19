@@ -8,5 +8,5 @@ import {Component, Input} from '@angular/core';
 export class CreateComponent {
   @Input() url: string = '';
   @Input() text: string = "Create";
-  @Input() useIcon: boolean = false;
+  @Input() useIcon: boolean = true;
 }

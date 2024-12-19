@@ -1,12 +1,12 @@
-<div class="card text-center border-primary p-2 h-100">
+<div class="card text-center border-primary h-100">
   <div class="d-flex flex-column h-100">
-    <div class="card-header bg-transparent">
+    <div class="card-header bg-transparent" style="max-height: 3.5rem;">
       <h4 class="card-title">Create new {{ mode }}</h4>
     </div>
     <div class="card-body flex-fill justify-content-center align-content-center" *ngIf="mode !== 'tag'">
-        <i [routerLink]="setLinkUrl(mode)" class="fa-solid fa-plus display-3 pointer"></i>
+        <i [routerLink]="setLinkUrl(mode)" class="fa-solid fa-plus display-3 pointer" style="color: #272525;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#272525'"></i>
     </div>
-    <div class="card-footer bg-transparent pt-3">
+    <div class="card-footer bg-transparent px-3 py-2">
       <app-create [url]="setLinkUrl(mode)"></app-create>
     </div>
   </div>
