@@ -3,7 +3,7 @@
 @import "../node_modules/bootswatch/dist/quartz/bootswatch";
 
 body {
-  background-color: #1e1e2f !important;
+  background-color: #f8f9fa !important;
 }
 
 .bold-text {
@@ -22,6 +22,38 @@ body {
 .card {
   border-radius: 24px;
   overflow: hidden;
+  @include glass(0.3, rgba($black, 0.6));
+
+  &-header,
+  &-body {
+    color: white;
+  }
+
+  &.bg-light {
+    .card-header,
+    .card-body {
+      color: $gray-800;
+    }
+  }
+
+  &.border {
+    @each $color, $value in $theme-colors {
+      &-#{$color} {
+        @include glass(0.3, rgba($value, 0.5));
+        .card-header {
+          background-color: $value !important;
+          border-bottom: none;
+
+          @if ($color == light) {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+card-height {
   min-height: 340px;
 }
 
@@ -81,4 +113,8 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
+}
+
+.tag-height {
+  min-height: 150px;
 }

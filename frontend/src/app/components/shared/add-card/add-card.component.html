@@ -6,7 +6,7 @@
     <div class="card-body flex-fill justify-content-center align-content-center" *ngIf="mode !== 'tag'">
         <i [routerLink]="setLinkUrl(mode)" class="fa-solid fa-plus display-3 pointer" style="color: #272525;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#272525'"></i>
     </div>
-    <div class="card-footer bg-transparent px-3 py-2">
+    <div class="card-footer bg-transparent d-flex justify-content-center align-items-center px-3 py-2">
       <app-create [url]="setLinkUrl(mode)"></app-create>
     </div>
   </div>

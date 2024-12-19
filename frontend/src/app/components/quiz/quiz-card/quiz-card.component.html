@@ -1,4 +1,4 @@
-<div class="card text-center border-primary h-100 min-height: 300px;" *ngIf="quiz">
+<div class="card card-height text-center border-primary h-100 min-height: 300px;" *ngIf="quiz">
   <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
     <h4 class="card-title mb-0">{{ quiz.name }}</h4>
     <div>
@@ -18,7 +18,7 @@
       <strong>Questions:</strong> {{ quiz.questionSize }}
     </p>
   </div>
-  <div class="card-footer bg-transparent px-3 py-2 d-flex justify-content-between align-items-center">
+  <div class="card-footer bg-transparent px-3 py-2 d-flex justify-content-between align-items-center" style="height: 5rem">
     <app-start [quiz]="quiz"></app-start>
     <div class="d-flex align-items-center">
     <app-edit url="/quiz/edit" [itemId]="quiz.id!"></app-edit>
