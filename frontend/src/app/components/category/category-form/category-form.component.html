@@ -1,5 +1,6 @@
-<div class="container mt-4">
-  <h2>{{ id ? 'Update category' : 'Create new category' }}</h2>
+<div class="container mt-4 text-dark">
+  <div class="form-glass-container rounded-4 p-3">
+  <h2 class="text-center mb-3">{{ id ? 'Update category' : 'Create new category' }}</h2>
 
   <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -36,7 +37,7 @@
       <label class="form-label">Color:</label>
       <div>
         <ng-container *ngFor="let color of colorsList; let i = index">
-          <input class="form-check-input color-selection rounded-0 me-2" [style.background-color]="color.hex"
+          <input class="form-check-input color-selection rounded-1 me-2" [style.background-color]="color.hex"
                  type="radio"
                  [value]="color.hex" formControlName="color">
         </ng-container>
@@ -44,7 +45,7 @@
     </div>
 
     <div class="col-12" *ngIf="hasNoQuizzes">
-      <div class="alert alert-info" role="alert">You can assign quizzes to categories as follows. Quiz -> Edit ->
+      <div class="alert alert-info text-dark" role="alert">You can assign quizzes to categories as follows. Quiz -> Edit ->
         Category dropdown
       </div>
     </div>
@@ -63,4 +64,5 @@
     </div>
 
   </form>
+  </div>
 </div>

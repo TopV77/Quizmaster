@@ -77,7 +77,6 @@ export class QuizFormComponent {
     }
   }
 
-
   onSubmit() {
 
     if (this.form.valid) {

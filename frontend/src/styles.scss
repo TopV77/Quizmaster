@@ -16,7 +16,11 @@ body {
 }
 
 .btn-info {
-  color: black;
+  color: black !important;
+}
+
+.btn-info:hover {
+  color: white !important;
 }
 
 .card {
@@ -69,6 +73,20 @@ card-height {
   display: inline-block;
 }
 
+.dropdown-multiselect__caret {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-size: 12px 12px !important;
+  background-position: center !important;
+  position: absolute !important;
+  top: 10% !important;
+  right: 10px !important;
+}
+
+.dropdown-multiselect__caret::before {
+  content: none !important;
+}
+
 .fixed-bottom {
   position: absolute;
   bottom: 100px;
@@ -76,9 +94,87 @@ card-height {
   transform: translateX(-50%);
 }
 
+.form-check-input:checked[type="radio"] {
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M6.173 13.998l-4.47-4.471 1.414-1.414 3.056 3.057 6.713-6.713 1.414 1.414z'/%3E%3C/svg%3E ");
+}
+
+.form-control {
+  border-color: black;
+  border-width: 1px;
+}
+
+.form-glass-container {
+  background-color: #cbdaf6;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-select {
+  border-color: black;
+  border-width: 1px;
+  color: black !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e") !important;
+  background-size: 16px 12px !important;
+}
+
+.form-select {
+  border-color: black;
+  border-width: 1px;
+  color: black !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e") !important;
+  background-size: 16px 12px !important;
+}
+
+.form-select:hover {
+  background-color: #c6c6c4;
+  border-color: #c6c6c4;
+  color: white !important;
+  transition: background-color 0.01s ease-in-out, border-color 0.01s ease-in-out;
+  cursor: pointer;
+}
+
+.form-select::after {
+  color: black !important;
+}
+
+input.color-selection {
+  width: 30px;
+  height: 30px;
+}
+
+.invalid-feedback {
+  border-color: $red !important;
+  color: $red;
+}
+
+.is-invalid {
+  border-color: $red !important;
+}
+
 .logo {
   color: white;
-  text-shadow: 0 0 5px #32fbe2, 0 0 10px #32fbe2, 0 0 20px #32fbe2, 0 0 30px #32fbe2;
+  text-shadow: 0 0 5px #32fbe2, 0 0 10px #32fbe2, 0 0 20px #32fbe2,
+    0 0 30px #32fbe2;
+}
+
+.multiselect-dropdown {
+  border: 1px solid black !important;
+  background-image: none;
+  border-radius: 8px !important;
+}
+
+.multiselect-dropdown:hover {
+  background-color: #c6c6c4;
+  border-color: #c6c6c4 !important;
+  color: white !important;
+  transition: background-color 0.01s ease-in-out, border-color 0.01s ease-in-out;
+  cursor: pointer;
+}
+
+.multiselect-dropdown .multiselec-item .noDataAvailablePlaceholder  {
+  color: red !important;
 }
 
 .nav-link {
@@ -96,6 +192,7 @@ card-height {
 .navbar {
   background-color: rgb(29, 101, 225);
   color: $white;
+  padding: 0 !important;
 }
 
 .rounded-lg {
@@ -115,6 +212,6 @@ card-height {
   line-height: 1.2;
 }
 
-.tag-height {
-  min-height: 150px;
+.tag-header {
+  font-size: small !important;
 }
