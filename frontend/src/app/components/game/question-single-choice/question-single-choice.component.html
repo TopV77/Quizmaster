@@ -1,6 +1,6 @@
-<div class="mb-5">
+<div class="mb-3">
   <div class="text-center">
-    <h3 class="fs-4 text-primary-emphasis mb-3">{{ currentQuestion.questionType }}</h3>
+    <h3 class="fs-4 text-primary mb-4">{{ currentQuestion.questionType }}</h3>
   </div>
 
 
@@ -8,7 +8,7 @@
     <div [formGroup]="form" class="container">
       <div class="row g-3">
         <div class="col-12 col-sm-6">
-          <label for="answerA" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <label for="answerA" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center rounded-3">
             <input
               id="answerA"
               type="radio"
@@ -20,7 +20,7 @@
           </label>
         </div>
         <div class="col-12 col-sm-6">
-          <label for="answerB" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <label for="answerB" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center rounded-3">
             <input
               id="answerB"
               type="radio"
@@ -32,7 +32,7 @@
           </label>
         </div>
         <div class="col-12 col-sm-6">
-          <label for="answerC" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <label for="answerC" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center rounded-3">
             <input
               id="answerC"
               type="radio"
@@ -44,7 +44,7 @@
           </label>
         </div>
         <div class="col-12 col-sm-6">
-          <label for="answerD" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center">
+          <label for="answerD" class="w-100 btn btn-outline-primary d-flex justify-content-start align-items-center rounded-3">
             <input
               id="answerD"
               type="radio"
@@ -59,9 +59,8 @@
     </div>
   </form>
 
-
-  <div class="text-center mt-5">
-    <button class="btn btn-outline-secondary me-2 mb-2" (click)="submit()"><i
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" (click)="submit()"><i
       class="fa-solid fa-arrow-right fs-6 me-2"></i>Submit
     </button>
   </div>
