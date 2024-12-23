@@ -1,10 +1,10 @@
-<div class="container mt-4">
+<div class="container mt-4 text-dark form-glass-container rounded-4 p-3">
   <h2>{{ id ? 'Update tag' : 'Create new tag' }}</h2>
 
   <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <div class="col-12">
-      <label for="name" class="form-label">Name*</label>
+      <label class="form-label" for="name">Name*</label>
       <input class="form-control" type="text" id="name" formControlName="name"
              [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
       <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
