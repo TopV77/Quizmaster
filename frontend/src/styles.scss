@@ -2,6 +2,13 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootswatch/dist/quartz/bootswatch";
 
+@media (max-width: 768px) {
+  .small-on-mobile {
+    max-width: 200px;
+    margin: 10px auto 10px;
+  }
+}
+
 body {
   background-color: #f8f9fa !important;
 }

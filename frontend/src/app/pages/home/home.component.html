@@ -1,6 +1,6 @@
 <ng-container>
   <section>
-    <div class="container py-4">
+    <div class="container my-4">
       <div class="row align-items-center justify-content-between">
         <div class="col-12 col-md-8 col-lg-9">
           <h1 class="display-5 text-dark bold-text">Test your knowledge and become the Quizmaster!</h1>
@@ -10,17 +10,17 @@
           </p>
         </div>
 
-        <div class="col-12 col-md-4 col-lg-3">
-          <img src="assets/HeroForHome.jpg" alt="Hero" class="img-fluid rounded-lg">
+        <div class="col-12 col-md-4 col-lg-3 text-center">
+          <img src="assets/HeroForHome.jpg" alt="Hero" class="img-fluid rounded-lg small-on-mobile">
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="container my-3">
-      <h2 class="fs-2 text-center text-dark mb-4">Latest added Quizzes</h2>
-      <p class="fs-5 mb-4 text-center text-dark">Discover the newest quizzes added to our collection! Explore a wide range of topics and test your
+    <div class="container my-4">
+      <h2 class="fs-2 text-center text-dark mb-2">Latest added Quizzes</h2>
+      <p class="fs-5 mb-4 text-left text-dark">Discover the newest quizzes added to our collection! Explore a wide range of topics and test your
         knowledge in just a few clicks.</p>
       <app-quiz-card-grid mode="latest"></app-quiz-card-grid>
     </div>
@@ -28,8 +28,8 @@
 
   <section>
     <div class="container my-5">
-      <h2 class="fs-2 text-center text-dark mb-4">Our Suggestions</h2>
-      <p class="fs-5 mb-4 text-center text-dark">Looking for a challenge? Try our recommended quizzes and dive into topics tailored just for
+      <h2 class="fs-2 text-center text-dark mb-2">Our Suggestions</h2>
+      <p class="fs-5 mb-4 text-left text-dark">Looking for a challenge? Try our recommended quizzes and dive into topics tailored just for
         you!</p>
       <app-quiz-card-grid mode="suggestions"></app-quiz-card-grid>
     </div>

@@ -1,11 +1,11 @@
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-  <div class="col">
-    <app-add-card mode="category"></app-add-card>
+  <div class="col d-flex align-items-stretch">
+    <app-add-card mode="category" class="w-100 h-100"></app-add-card>
   </div>
 
-  <div class="col" *ngFor="let category of categories">
-    <app-category-card [category]="category"></app-category-card>
+  <div class="col d-flex" *ngFor="let category of categories">
+    <app-category-card [category]="category" class="w-100"></app-category-card>
   </div>
 
 </div>

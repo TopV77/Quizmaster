@@ -1,32 +1,41 @@
-<section>
-  <div class="container my-5" *ngIf="categoryDetail">
-    <div>
+<div class="container mt-4 text-dark">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="form-glass-container rounded-4 p-3" *ngIf="categoryDetail">
+        <div>
 
-      <div class="d-flex justify-content-between align-items-center my-4">
-        <h1 class="fs-2">Category: {{ categoryDetail.name }}</h1>
-      </div>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="fs-2 ">Category: {{ categoryDetail.name }}</h1>
+          </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Description</h3>
-        <p>{{ categoryDetail.description }}</p>
-      </div>
+          <div class="mb-3">
+            <h3 class="fs-4 text-secondary text-dark">Description</h3>
+            <p>{{ categoryDetail.description }}</p>
+          </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Quizzes</h3>
-        <ul>
-          <li *ngFor="let quiz of categoryDetail.quizzes">{{ quiz.name }}</li>
-        </ul>
-      </div>
+          <div class="mb-3">
+            <h3 class="fs-4 text-secondary text-dark">Quizzes</h3>
+            <ul>
+              <li *ngFor="let quiz of categoryDetail.quizzes">{{ quiz.name }}</li>
+            </ul>
+          </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Color</h3>
-        <div class="d-inline-block custom-box" [style.background-color]="categoryDetail.color">&nbsp;</div>
-      </div>
+          <div class="mb-3">
+            <h3 class="fs-4 text-secondary text-dark">Color</h3>
+            <div class="d-inline-block custom-box rounded-1" [style.background-color]="categoryDetail.color">&nbsp;
+            </div>
+          </div>
 
-      <div class="mt-5">
-        <app-back></app-back>
-        <app-edit url="/category/edit" [itemId]="categoryDetail.id!"></app-edit>
+          <div class="mt-4 d-flex justify-content-between align-items-center gap-3">
+            <div class="d-flex align-items-center">
+              <app-back></app-back>
+            </div>
+            <div class="d-flex align-items-center">
+              <app-edit url="/category/edit" [itemId]="categoryDetail.id!"></app-edit>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
