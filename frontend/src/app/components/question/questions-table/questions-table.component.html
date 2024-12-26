@@ -26,7 +26,7 @@
         <i class="fa-solid fa-heart text-danger fs-3" *ngIf="question.isFavorite"></i>
       </td>
       <td class="hide-action">
-        <div class="d-flex justify-content-center mt-2">
+        <div class="d-flex justify-content-center gap-1">
           <app-edit url="/question/edit" [itemId]="question.id!"></app-edit>
           <app-details url="/question" [itemId]="question.id!"></app-details>
         </div>

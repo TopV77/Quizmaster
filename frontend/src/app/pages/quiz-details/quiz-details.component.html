@@ -1,34 +1,43 @@
-<section>
-  <div class="container my-4" *ngIf="quizDetail">
-    <div>
-      <div class="my-4">
-        <h1 class="fs-2">{{ quizDetail.name }} <i class="fs-2 fa-solid fa-heart text-danger ms-2" *ngIf="quizDetail.isFavorite"></i></h1>
-      </div>
+<div class="container mt-4 text-dark">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="form-glass-container rounded-4 p-3" *ngIf="quizDetail">
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Category</h3>
-        <span>
-        {{ quizDetail.category.name }}
-      </span>
-      </div>
+        <div class="d-flex justify-content-between align-items-center mb-3 gap-3">
+          <div>
+          <h1 class="fs-2 m-0">{{ quizDetail.name }}</h1></div>
+          <i class="fs-2 fa-solid fa-heart text-danger" *ngIf="quizDetail.isFavorite"></i>
+        </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Description</h3>
-        <p>{{ quizDetail.description }}</p>
-      </div>
+        <div class="mb-3">
+          <h3 class="fs-4 text-secondary text-dark">Category</h3>
+          <span>
+            {{ quizDetail.category.name }}
+          </span>
+        </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Questions</h3>
-        <ul>
-          <li *ngFor="let question of quizDetail.questions">{{ question.question }}</li>
-        </ul>
-      </div>
+        <div class="mb-3">
+          <h3 class="fs-4 text-secondary text-dark">Description</h3>
+          <p>{{ quizDetail.description }}</p>
+        </div>
 
-      <div class="mt-5">
-        <app-back></app-back>
-        <app-edit url="/quiz/edit" [itemId]="quizDetail.id!"></app-edit>
-      </div>
+        <div class="mb-3">
+          <h3 class="fs-4 text-secondary text-dark">Questions</h3>
+          <ul>
+            <li *ngFor="let question of quizDetail.questions">{{ question.question }}</li>
+          </ul>
+        </div>
 
+        <div class="mt-4 d-flex justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center">
+            <app-back></app-back>
+          </div>
+          <div class="d-flex align-items-center">
+            <app-edit url="/quiz/edit" [itemId]="quizDetail.id!"></app-edit>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</section>
+</div>

@@ -2,7 +2,7 @@
   <div class="card-header bg-transparent" style="max-height: 3.5rem;">
     <h4 class="card-title fs-5">{{ tag.name }}</h4>
   </div>
-  <div class="card-footer bg-transparent px-3 py-2 d-flex justify-content-end align-items-center" style="height: 5rem">
+  <div class="card-footer bg-transparent px-3 py-2 d-flex justify-content-end align-items-center gap-1" style="height: 5rem">
     <app-edit url="/tag/edit" [itemId]="tag.id!"></app-edit>
     <app-details url="/tag" [itemId]="tag.id!"></app-details>
   </div>
