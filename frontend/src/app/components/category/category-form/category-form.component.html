@@ -1,68 +1,69 @@
 <div class="container mt-4 text-dark">
   <div class="form-glass-container rounded-4 p-3">
-  <h2 class="text-center mb-3">{{ id ? 'Update category' : 'Create new category' }}</h2>
+    <h2 class="text-center mb-3">{{ id ? 'Update Category' : 'Create New Category' }}</h2>
 
-  <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <div class="col-12">
-      <label for="name" class="form-label">Name*</label>
-      <input class="form-control " type="text" id="name" formControlName="name"
-             [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}"
-      >
-      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
-        Name is required
+      <div class="col-12">
+        <label for="name" class="form-label">Name*</label>
+        <input class="form-control text-dark" type="text" id="name" formControlName="name"
+          [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
+          Name is required
+        </div>
       </div>
-    </div>
 
-    <div class="col-12">
-      <label for="description" class="form-label">Description*</label>
-      <textarea class="form-control" id="description" formControlName="description"
-                [ngClass]="{'is-invalid': form.get('description')?.invalid && form.get('description')?.touched}"></textarea>
-      <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched" class="invalid-feedback">
-        Description is required
+      <div class="col-12">
+        <label for="description" class="form-label">Description*</label>
+        <textarea class="form-control text-dark" id="description" formControlName="description"
+          [ngClass]="{'is-invalid': form.get('description')?.invalid && form.get('description')?.touched}"></textarea>
+        <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched" class="invalid-feedback">
+          Description is required
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="id === 0">
-      <label class="form-label" for="password">Password*</label>
-      <input class="form-control" type="password" id="password" formControlName="password"
-             [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
-      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
-        <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
-        <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+      <div class="col-12" *ngIf="id === 0">
+        <label class="form-label" for="password">Password*</label>
+        <input class="form-control text-dark" type="password" id="password" formControlName="password"
+          [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
+          <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
+          <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 col-md-6">
-      <label class="form-label">Color:</label>
-      <div>
-        <ng-container *ngFor="let color of colorsList; let i = index">
-          <input class="form-check-input color-selection rounded-1 me-2" [style.background-color]="color.hex"
-                 type="radio"
-                 [value]="color.hex" formControlName="color">
-        </ng-container>
+      <div class="col-12">
+        <label class="form-label">Color:</label>
+        <div>
+          <ng-container *ngFor="let color of colorsList; let i = index">
+            <input class="form-check-input color-selection rounded-1 me-2" [style.background-color]="color.hex"
+              type="radio" [value]="color.hex" formControlName="color">
+          </ng-container>
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="hasNoQuizzes">
-      <div class="alert alert-info text-dark" role="alert">You can assign quizzes to categories as follows. Quiz -> Edit ->
-        Category dropdown
+      <div class="col-12" *ngIf="hasNoQuizzes">
+        <div class="alert alert-info text-dark" role="alert">You can assign quizzes to categories as follows. Quiz ->
+          Edit ->
+          Category dropdown
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="!hasNoQuizzes && id > 0">
-      <div class="alert alert-info" role="alert">You can only delete a category if no quizzes are assigned. Quiz ->
-        Edit -> Category dropdown. You can find the assigned quizzes on <a [routerLink]="['/category', id]">category
-          details pages</a>.
+      <div class="col-12" *ngIf="!hasNoQuizzes && id > 0">
+        <div class="alert alert-info text-dark" role="alert">You can only delete a category if no quizzes are assigned.
+          Quiz ->
+          Edit -> Category dropdown. You can find the assigned quizzes on <a class="text-dark"
+            [routerLink]="['/category', id]">category details pages
+          </a>.
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 mt-5">
-      <app-back></app-back>
-      <app-delete [itemId]="id" mode="category" *ngIf="id > 0 && hasNoQuizzes"></app-delete>
-      <app-save [disabled]="form.invalid"></app-save>
-    </div>
+      <div class="col-12 mt-5 justify-content-between d-flex">
+        <app-back></app-back>
+        <app-delete [itemId]="id" mode="category" *ngIf="id > 0 && hasNoQuizzes"></app-delete>
+        <app-save [disabled]="form.invalid"></app-save>
+      </div>
 
-  </form>
+    </form>
   </div>
 </div>

@@ -1,0 +1,16 @@
+input[type="radio"].form-check-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="radio"].form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
