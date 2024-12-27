@@ -1,21 +1,26 @@
-<section>
-  <div class="container my-4" *ngIf="tagDetail">
+<div class="container mt-4 text-dark col-12 col-lg-8" *ngIf="tagDetail">
+  <div class="form-glass-container rounded-4 p-3">
+  
 
-    <div class="d-flex justify-content-between align-items-center my-4">
-      <h1 class="fs-2">Tag: {{ tagDetail.name }}</h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="m-0 me-2">{{ tagDetail.name }}</h2>
     </div>
 
     <div class="mb-3">
-      <h3 class="fs-4 text-secondary-emphasis">Questions</h3>
+      <h3 class="fs-4 text-secondary text-dark">Questions</h3>
       <ul>
         <li *ngFor="let question of tagDetail.questions">{{ question.question }}</li>
       </ul>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-4 d-flex justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center">
       <app-back></app-back>
+      </div>
+      <div class="d-flex align-items-center">
       <app-edit url="/tag/edit" [itemId]="tagDetail.id!"></app-edit>
+      </div>
     </div>
 
   </div>
-</section>
+</div>

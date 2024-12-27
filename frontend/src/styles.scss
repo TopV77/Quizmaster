@@ -193,11 +193,11 @@ input.color-selection {
 }
 
 .nav-link:hover {
-  color: var(--bs-navbar-hover-color);
+  color: white !important;
 }
 
 .nav-link.footer-link:hover {
-  color: white !important;
+  color: rgb(29, 101, 225) !important;
 }
 
 .navbar {

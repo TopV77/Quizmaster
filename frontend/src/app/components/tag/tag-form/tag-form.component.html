@@ -1,35 +1,39 @@
-<div class="container mt-4 text-dark form-glass-container rounded-4 p-3">
-  <h2>{{ id ? 'Update tag' : 'Create new tag' }}</h2>
+<div class="container mt-4 text-dark col-12 col-lg-8">
+  <div class="form-glass-container rounded-4 p-3">
+    <h2 class="text-center mb-3">{{ id ? 'Update Tag' : 'Create New Tag' }}</h2>
 
-  <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <div class="col-12">
-      <label class="form-label" for="name">Name*</label>
-      <input class="form-control" type="text" id="name" formControlName="name"
-             [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
-      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
-        Name is required
+      <div class="col-12">
+        <label class="form-label" for="name">Name*</label>
+        <input class="form-control text-dark" type="text" id="name" formControlName="name"
+          [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
+          Name is required
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="hasNoQuestions && id > 0">
-      <div class="alert alert-info" role="alert">You can assign tags to questions as follows. Question -> Edit ->
-        Tag dropdown
+      <div class="col-12" *ngIf="hasNoQuestions && id > 0">
+        <div class="alert alert-info text-dark" role="alert">You can assign tags to questions as follows. Question -> Edit ->
+          Tag dropdown
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="!hasNoQuestions && id > 0">
-      <div class="alert alert-info" role="alert">You can only delete a tag if no questions are assigned. Questions ->
-        Edit -> Tag dropdown. You can find the assigned tags on <a [routerLink]="['/tag', id]">tag
-          details pages</a>.
+      <div class="col-12" *ngIf="!hasNoQuestions && id > 0">
+        <div class="alert alert-info text-dark" role="alert">You can only delete a tag if no questions are assigned. Questions ->
+          Edit -> Tag dropdown. You can find the assigned tags on <a 
+          class="text-dark"
+          [routerLink]="['/tag', id]">tag
+            details pages</a>.
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 mt-5">
-      <app-back></app-back>
-      <app-delete [itemId]="id" mode="tag" *ngIf="id > 0 && hasNoQuestions"></app-delete>
-      <app-save [disabled]="form.invalid"></app-save>
-    </div>
+      <div class="col-12 mt-5 justify-content-between d-flex">
+        <app-back></app-back>
+        <app-delete [itemId]="id" mode="tag" *ngIf="id > 0 && hasNoQuestions"></app-delete>
+        <app-save [disabled]="form.invalid"></app-save>
+      </div>
 
-  </form>
+    </form>
+  </div>
 </div>

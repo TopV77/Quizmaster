@@ -1,75 +1,80 @@
-<div class="container mt-4 text-dark form-glass-container rounded-4 p-3">
-  <h2 class="text-center mb-3">{{ id > 0 ? 'Update Quiz' : 'Create New Quiz' }}</h2>
+<div class="container mt-4 text-dark col-12 col-lg-8">
+  <div class="form-glass-container rounded-4 p-3">
 
-  <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 class="text-center mb-3">{{ id > 0 ? 'Update Quiz' : 'Create New Quiz' }}</h2>
 
-    <div class="col-12">
-      <label class="form-label" for="name">Name*</label>
-      <input class="form-control text-dark" type="text" id="name" formControlName="name"
-        [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
-      <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
-        Name is required
+    <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="col-12">
+        <label class="form-label" for="name">Name*</label>
+        <input class="form-control text-dark" type="text" id="name" formControlName="name"
+          [ngClass]="{'is-invalid': form.get('name')?.invalid && form.get('name')?.touched}">
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="invalid-feedback">
+          Name is required
+        </div>
       </div>
-    </div>
 
-    <div class="col-12">
-      <label class="form-label" for="description">Description*</label>
-      <input class="form-control text-dark" type="text" id="description" formControlName="description"
-        [ngClass]="{'is-invalid': form.get('description')?.invalid && form.get('description')?.touched}">
-      <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched" class="invalid-feedback">
-        Description is required
+      <div class="col-12">
+        <label class="form-label" for="description">Description*</label>
+        <input class="form-control text-dark" type="text" id="description" formControlName="description"
+          [ngClass]="{'is-invalid': form.get('description')?.invalid && form.get('description')?.touched}">
+        <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched" class="invalid-feedback">
+          Description is required
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="id === 0">
-      <label class="form-label" for="password">Password*</label>
-      <input class="form-control text-dark" type="password" id="password" formControlName="password"
-        [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
-      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
-        <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
-        <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+      <div class="col-12" *ngIf="id === 0">
+        <label class="form-label" for="password">Password*</label>
+        <input class="form-control text-dark" type="password" id="password" formControlName="password"
+          [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
+          <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
+          <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+        </div>
       </div>
-    </div>
 
-    <div class="col-12 col-md-6">
-      <label class="form-label" for="isFavorite">Favorite</label>
-      <select class="form-select text-dark" id="isFavorite" formControlName="isFavorite">
-        <option value="false">No</option>
-        <option value="true">Yes</option>
-      </select>
-    </div>
+      <div class="col-12 col-md-6">
+        <label class="form-label" for="isFavorite">Favorite</label>
+        <select class="form-select text-dark" id="isFavorite" formControlName="isFavorite">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
 
-    <div class="col-12 col-md-6">
-      <label class="form-label">Category*</label>
-      <ng-multiselect-dropdown [placeholder]="'Select a category'"
-        [ngClass]="{'is-invalid': form.get('category')?.invalid && form.get('category')?.touched}" [settings]="{singleSelection: true,idField: 'id',textField: 'name',itemsShowLimit: 3,allowSearchFilter: true,
+      <div class="col-12 col-md-6">
+        <label class="form-label">Category*</label>
+        <ng-multiselect-dropdown [placeholder]="'Select a category'"
+          [ngClass]="{'is-invalid': form.get('category')?.invalid && form.get('category')?.touched}" [settings]="{singleSelection: true,idField: 'id',textField: 'name',itemsShowLimit: 3,allowSearchFilter: true,
         allowRemoteDataSearch:true
         }" [data]="categoryList" formControlName="category">
-      </ng-multiselect-dropdown>
-      <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched" class="invalid-feedback">
-        Please select a category.
+        </ng-multiselect-dropdown>
+        <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched" class="invalid-feedback">
+          Please select a category.
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="quizHasQuestions">
-      <div class="alert alert-info" role="alert">You can assign questions to quizzes as follows. Questions -> Edit ->
-        Quiz dropdown
+      <div class="col-12" *ngIf="quizHasQuestions">
+        <div class="alert alert-info" role="alert">You can assign questions to quizzes as follows. Questions -> Edit
+          ->
+          Quiz dropdown
+        </div>
       </div>
-    </div>
 
-    <div class="col-12" *ngIf="!quizHasQuestions && id > 0">
-      <div class="alert alert-info text-dark" role="alert">You can only delete a quiz if no questions are assigned.
-        Questions ->
-        Edit -> Quiz dropdown. You can find the assigned questions on <a class="text-dark"
-          routerLink]="['/quiz', id]">quiz details
-          pages</a>.</div>
-    </div>
+      <div class="col-12" *ngIf="!quizHasQuestions && id > 0">
+        <div class="alert alert-info text-dark" role="alert">You can only delete a quiz if no questions are
+          assigned.
+          Questions ->
+          Edit -> Quiz dropdown. You can find the assigned questions on <a class="text-dark"
+            routerLink]="['/quiz', id]">quiz details
+            pages</a>.</div>
+      </div>
 
-    <div class="col-12 mt-5 justify-content-between d-flex">
-      <app-back></app-back>
-      <app-delete [itemId]="id" mode="quiz" *ngIf="id > 0 && quizHasQuestions"></app-delete>
-      <app-save [disabled]="form.invalid"></app-save>
-    </div>
+      <div class="col-12 mt-5 justify-content-between d-flex">
+        <app-back></app-back>
+        <app-delete [itemId]="id" mode="quiz" *ngIf="id > 0 && quizHasQuestions"></app-delete>
+        <app-save [disabled]="form.invalid"></app-save>
+      </div>
 
-  </form>
+    </form>
+  </div>
 </div>
