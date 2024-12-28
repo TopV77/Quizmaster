@@ -1,48 +1,55 @@
-<section>
-  <div class="container my-4" *ngIf="questionDetail">
-    <div>
-      <div class="my-4">
-        <h1 class="fs-2">{{ questionDetail.question }} <i class="fs-2 fa-solid fa-heart text-danger ms-2" *ngIf="questionDetail.isFavorite"></i></h1>
-      </div>
+<div class="container mt-4 text-dark col-12 col-lg-8">
+  <div class="form-glass-container rounded-4 p-3" *ngIf="questionDetail">
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Question Type</h3>
-        <p>{{ questionDetail.questionType }}</p>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 [ngClass]="{'text-truncate': questionDetail.question.length > 20}" class="m-0 me-2">{{
+          questionDetail.question }}</h2>
       </div>
+      <i class="fs-2 fa-solid fa-heart text-danger" *ngIf="questionDetail.isFavorite"></i>
+    </div>
 
-      <div class="mb-3">
-        <h3 class="fs-4 text-secondary-emphasis">Correct Answer</h3>
-        <p class="text-success"><strong>{{ questionDetail.correctAnswer }}</strong></p>
-      </div>
+    <div class="mb-3">
+      <h3 class="fs-4 text-secondary text-dark">Question Type</h3>
+      <p>{{ questionDetail.questionType }}</p>
+    </div>
 
-      <div class="mb-3" *ngIf="questionDetail.questionType !== 'Text Input'">
-        <h3 class="fs-4 text-secondary-emphasis">Possible Answers</h3>
-        <ul>
-          <li *ngIf="questionDetail.answerA">A: {{ questionDetail.answerA }}</li>
-          <li *ngIf="questionDetail.answerB">B: {{ questionDetail.answerB }}</li>
-          <li *ngIf="questionDetail.answerC">C: {{ questionDetail.answerC }}</li>
-          <li *ngIf="questionDetail.answerD">D: {{ questionDetail.answerD }}</li>
-        </ul>
-      </div>
+    <div class="mb-3">
+      <h3 class="fs-4 text-secondary text-dark">Correct Answer</h3>
+      <p><strong>{{ questionDetail.correctAnswer }}</strong></p>
+    </div>
 
-      <div class="mb-3" *ngIf="questionDetail.tags">
-        <h3 class="fs-4 text-secondary-emphasis">Tags</h3>
-        <span *ngFor="let tag of questionDetail.tags" class="badge bg-info text-dark me-1">{{ tag.name }}</span>
-      </div>
+    <div class="mb-3" *ngIf="questionDetail.questionType !== 'Text Input'">
+      <h3 class="fs-4 text-secondary text-dark">Possible Answers</h3>
+      <ul>
+        <li *ngIf="questionDetail.answerA">A: {{ questionDetail.answerA }}</li>
+        <li *ngIf="questionDetail.answerB">B: {{ questionDetail.answerB }}</li>
+        <li *ngIf="questionDetail.answerC">C: {{ questionDetail.answerC }}</li>
+        <li *ngIf="questionDetail.answerD">D: {{ questionDetail.answerD }}</li>
+      </ul>
+    </div>
 
-      <div class="mb-3" *ngIf="questionDetail.quizzes">
-        <h3 class="fs-4 text-secondary-emphasis">Associated Quizzes</h3>
-        <ul>
-          <li *ngFor="let quiz of questionDetail.quizzes">
-            {{ quiz.name }}
-          </li>
-        </ul>
-      </div>
+    <div class="mb-3" *ngIf="questionDetail.tags">
+      <h3 class="fs-4 text-secondary text-dark">Tags</h3>
+      <span *ngFor="let tag of questionDetail.tags" class="badge bg-info text-dark me-1">{{ tag.name }}</span>
+    </div>
 
-      <div class="mt-5">
+    <div class="mb-3" *ngIf="questionDetail.quizzes">
+      <h3 class="fs-4 text-secondary text-dark">Associated Quizzes</h3>
+      <ul>
+        <li *ngFor="let quiz of questionDetail.quizzes">
+          {{ quiz.name }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-5 d-flex justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center">
         <app-back></app-back>
+      </div>
+      <div class="d-flex align-items-center">
         <app-edit url="/question/edit" [itemId]="questionDetail.id!"></app-edit>
       </div>
     </div>
   </div>
-</section>
+</div>

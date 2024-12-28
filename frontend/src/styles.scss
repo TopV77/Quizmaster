@@ -2,10 +2,26 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootswatch/dist/quartz/bootswatch";
 
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('assets/fonts/Brutalista Alt Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyCustomFont', sans-serif;
+}
+
 @media (max-width: 768px) {
   .small-on-mobile {
     max-width: 200px;
     margin: 10px auto 10px;
+  }
+  .fa-chevron-left,
+  .fa-trash,
+  .fa-floppy-disk {
+    display: none;
   }
 }
 
@@ -179,7 +195,7 @@ input.color-selection {
 .multiselect-dropdown:hover {
   background-color: #c6c6c4;
   border-color: #c6c6c4 !important;
-  color: white !important;
+  color: black !important;
   transition: background-color 0.01s ease-in-out, border-color 0.01s ease-in-out;
   cursor: pointer;
 }
@@ -208,6 +224,10 @@ input.color-selection {
 
 .rounded-lg {
   border-radius: 1rem;
+}
+
+.selected-item-container {
+  margin-right: 8px;
 }
 
 .table {

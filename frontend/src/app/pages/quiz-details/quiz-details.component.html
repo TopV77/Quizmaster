@@ -3,9 +3,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
-        <h2 [ngClass]="{'text-truncate': quizDetail.name.length > 20}"
-          [style.maxWidth.px]="quizDetail.name.length > 20 ? 200 : 'auto'" 
-          class="m-0 me-2">{{ quizDetail.name }}</h2>
+        <h2 [ngClass]="{'text-truncate': quizDetail.name.length > 20}" class="m-0 me-2">{{ quizDetail.name }}</h2>
       </div>
       <i class="fs-2 fa-solid fa-heart text-danger" *ngIf="quizDetail.isFavorite"></i>
     </div>
@@ -22,14 +20,14 @@
       <p>{{ quizDetail.description }}</p>
     </div>
 
-    <div class="mb-3">
+    <div>
       <h3 class="fs-4 text-secondary text-dark">Questions</h3>
       <ul>
         <li *ngFor="let question of quizDetail.questions">{{ question.question }}</li>
       </ul>
     </div>
 
-    <div class="mt-4 d-flex justify-content-between align-items-center gap-3">
+    <div class="mt-5 d-flex justify-content-between align-items-center gap-3">
       <div class="d-flex align-items-center">
         <app-back></app-back>
       </div>

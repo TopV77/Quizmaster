@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TagShort} from "../../../interfaces/tagShort";
 import {QuizService} from "../../../services/quiz/quiz.service";
@@ -13,7 +13,7 @@ import {QuizDetail} from "../../../interfaces/quizDetail";
   styleUrl: './quiz-form.component.css'
 })
 
-export class QuizFormComponent {
+export class QuizFormComponent implements OnInit {
 
   form: FormGroup;
 
@@ -23,7 +23,7 @@ export class QuizFormComponent {
   // All existing categories
   categoryList: TagShort[] = [];
   quizHasQuestions: boolean = false; //Only used for Deletebutton
-
+  isMobile: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -105,5 +105,9 @@ export class QuizFormComponent {
       }
 
     }
+  }
+
+  ngOnInit() {
+    this.isMobile = window.innerWidth < 400;
   }
 }

@@ -1,20 +1,20 @@
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ChangeDetectorRef, Component} from "@angular/core";
-import {TagService} from "../../../services/tag/tag.service";
-import {QuizService} from "../../../services/quiz/quiz.service";
-import {TagShort} from "../../../interfaces/tagShort";
-import {ActivatedRoute, Router} from "@angular/router";
-import {QuestionService} from "../../../services/question/question.service";
-import {QuestionDetail} from "../../../interfaces/questionDetail";
-import {QuizNameAndId} from "../../../interfaces/quizNameAndId";
-import {removeNullValues} from "../../../helpers/form-helpers";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ChangeDetectorRef, Component, OnInit, HostListener } from "@angular/core";
+import { TagService } from "../../../services/tag/tag.service";
+import { QuizService } from "../../../services/quiz/quiz.service";
+import { TagShort } from "../../../interfaces/tagShort";
+import { ActivatedRoute, Router } from "@angular/router";
+import { QuestionService } from "../../../services/question/question.service";
+import { QuestionDetail } from "../../../interfaces/questionDetail";
+import { QuizNameAndId } from "../../../interfaces/quizNameAndId";
+import { removeNullValues } from "../../../helpers/form-helpers";
 
 @Component({
     selector: 'app-question-form',
     templateUrl: './question-form.component.html',
     styleUrls: ['./question-form.component.css']
 })
-export class QuestionFormComponent {
+export class QuestionFormComponent implements OnInit {
 
     form: FormGroup;
     showCorrectAnswer = true;
@@ -27,6 +27,7 @@ export class QuestionFormComponent {
     tagsList: TagShort[] = [];
     quizList: QuizNameAndId[] = [];
 
+    dropdownSettings = {};
 
     constructor(
         private fb: FormBuilder,
@@ -56,7 +57,6 @@ export class QuestionFormComponent {
         this.loadOptions();
         this.loadExistingQuestion();
     }
-
 
     private loadOptions() {
         this.tagService.getAllTags().subscribe(data => {
@@ -98,7 +98,7 @@ export class QuestionFormComponent {
 
                         // Split the semicolon seperated string and make sure there are no blanks
                         const correctAnswers = dataForForm.correctAnswer.split(';').map(answer => answer.trim());
-                        this.form.patchValue({correctAnswer: correctAnswers});
+                        this.form.patchValue({ correctAnswer: correctAnswers });
 
                     } else {
                         this.form.patchValue({
@@ -111,14 +111,13 @@ export class QuestionFormComponent {
                     // Remove validation from password -> filed hidden on edit
                     this.form.get('password')?.removeValidators(Validators.required);
                     this.form.get('password')?.updateValueAndValidity();
-
                 }
             });
         }
     }
 
-
     ngOnInit() {
+        this.updateDropdownSettings(window.innerWidth);
 
         // Show hide correct answer field
         this.form.get('questionType')?.valueChanges.subscribe(value => {
@@ -145,7 +144,6 @@ export class QuestionFormComponent {
                     // We had a bug that question was not required anymore after switch to Text Input
                     this.form.get('question')?.setValidators(Validators.required);
                     this.form.get('question')?.updateValueAndValidity();
-
 
                     const removeList = ['correctAnswer', 'answerA', 'answerB', 'answerC', 'answerD'];
                     this.removeFieldRequiredValidator(removeList);
@@ -200,7 +198,6 @@ export class QuestionFormComponent {
         }
     }
 
-
     // Helper functions
     private setValidatorsMCSC() {
         this.form.get('correctAnswerText')?.removeValidators(Validators.required);
@@ -226,5 +223,20 @@ export class QuestionFormComponent {
         Object.keys(this.form.controls).forEach(key => {
             this.form.get(key)?.updateValueAndValidity();
         });
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+        this.updateDropdownSettings(event.target.innerWidth);
+    }
+
+    updateDropdownSettings(width: number) {
+        this.dropdownSettings = {
+            singleSelection: false,
+            idField: 'id',
+            textField: 'name',
+            itemsShowLimit: width < 768 ? 2 : 3,
+            allowSearchFilter: true
+        };
     }
 }

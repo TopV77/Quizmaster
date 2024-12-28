@@ -54,7 +54,7 @@
       </div>
 
       <div class="col-12" *ngIf="quizHasQuestions">
-        <div class="alert alert-info" role="alert">You can assign questions to quizzes as follows. Questions -> Edit
+        <div class="alert alert-info text-dark" role="alert">You can assign questions to quizzes as follows. Questions -> Edit
           ->
           Quiz dropdown
         </div>
@@ -69,7 +69,7 @@
             pages</a>.</div>
       </div>
 
-      <div class="col-12 mt-5 justify-content-between d-flex">
+      <div class="col-12 mt-5 d-flex" [ngClass]="{'justify-content-center': isMobile, 'gap-2': isMobile, 'justify-content-between': !isMobile, 'gap-0': !isMobile}">
         <app-back></app-back>
         <app-delete [itemId]="id" mode="quiz" *ngIf="id > 0 && quizHasQuestions"></app-delete>
         <app-save [disabled]="form.invalid"></app-save>

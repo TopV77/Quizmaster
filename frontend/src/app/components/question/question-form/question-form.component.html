@@ -1,127 +1,128 @@
-<section>
-  <div class="container mt-4 text-dark">
-    <div class="form-glass-container rounded-4 p-3">
-      <h2 class="text-center mb-3">{{ id > 0 ? 'Update Question' : 'Create New Question' }}</h2>
-      <form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="container mt-4 text-dark col-12 col-lg-8">
+  <div class="form-glass-container rounded-4 p-3">
+    <h2 class="text-center mb-3">{{ id > 0 ? 'Update Question' : 'Create New Question' }}</h2>
 
-        <div class="col-12">
-          <label class="form-label" for="question">Question*</label>
-          <input class="form-control" type="text" id="question" formControlName="question"
-            [ngClass]="{'is-invalid': form.get('question')?.invalid && form.get('question')?.touched}">
-          <div *ngIf="form.get('question')?.invalid && form.get('question')?.touched" class="invalid-feedback">
-            Question is required
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="col-12 mb-3">
+        <label class="form-label" for="question">Question*</label>
+        <input class="form-control text-dark" type="text" id="question" formControlName="question"
+          [ngClass]="{'is-invalid': form.get('question')?.invalid && form.get('question')?.touched}">
+        <div *ngIf="form.get('question')?.invalid && form.get('question')?.touched" class="invalid-feedback">
+          Question is required
+        </div>
+      </div>
+
+      <div class="col-12 mb-3" *ngIf="id === 0">
+        <label class="form-label" for="password">Password*</label>
+        <input class="form-control" type="password" id="password" formControlName="password"
+          [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
+          <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
+          <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+        </div>
+      </div>
+
+      <div class="col-12 mb-3">
+        <label class="form-label" for="questionType">Question Type*</label>
+        <select class="form-select" id="questionType" formControlName="questionType">
+          <option value="Single Choice">Single Choice</option>
+          <option value="Multiple Choice">Multiple Choice</option>
+          <option value="Text Input">Text Input</option>
+        </select>
+      </div>
+
+      <div class="col-12 mb-3">
+        <label class="form-label" for="isFavorite">Favorite</label>
+        <select class="form-select" id="isFavorite" formControlName="isFavorite">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+
+      <div class="row" *ngIf="form.get('questionType')?.value != 'Text Input'">
+
+        <div class="col-12 col-md-6 mb-3">
+          <label class="form-label" for="answerA">Option A*</label>
+          <input class="form-control text-dark" type="text" id="answerA" formControlName="answerA"
+            [ngClass]="{'is-invalid': form.get('answerA')?.invalid && form.get('answerA')?.touched}">
+          <div *ngIf="form.get('answerA')?.invalid && form.get('answerA')?.touched" class="invalid-feedback">
+            Option A is required.
           </div>
         </div>
 
-        <div class="col-12" *ngIf="id === 0">
-          <label class="form-label" for="password">Password*</label>
-          <input class="form-control" type="password" id="password" formControlName="password"
-            [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
-          <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="invalid-feedback">
-            <div *ngIf="form.get('password')?.hasError('required')">Password is required</div>
-            <div *ngIf="form.get('password')?.hasError('minlength')">Must be at least 6 characters</div>
+        <div class="col-12 col-md-6 mb-3">
+          <label class="form-label" for="answerB">Option B*</label>
+          <input class="form-control text-dark" type="text" id="answerB" formControlName="answerB"
+            [ngClass]="{'is-invalid': form.get('answerB')?.invalid && form.get('answerB')?.touched}">
+          <div *ngIf="form.get('answerB')?.invalid && form.get('answerB')?.touched" class="invalid-feedback">
+            Option B is required.
           </div>
         </div>
 
-        <div class="col-12 col-md-6">
-          <label class="form-label" for="questionType">Question Type*</label>
-          <select class="form-select" id="questionType" formControlName="questionType">
-            <option value="Single Choice">Single Choice</option>
-            <option value="Multiple Choice">Multiple Choice</option>
-            <option value="Text Input">Text Input</option>
-          </select>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <label class="form-label" for="isFavorite">Favorite</label>
-          <select class="form-select" id="isFavorite" formControlName="isFavorite">
-            <option value="false">No</option>
-            <option value="true">Yes</option>
-          </select>
-        </div>
-
-        <div class="col-12" *ngIf="form.get('questionType')?.value != 'Text Input'">
-          <div class="row">
-            <div class="col-12 col-md-6 mt-3">
-              <label class="form-label" for="answerA">Option A*</label>
-              <input class="form-control" type="text" id="answerA" formControlName="answerA"
-                [ngClass]="{'is-invalid': form.get('answerA')?.invalid && form.get('answerA')?.touched}">
-              <div *ngIf="form.get('answerA')?.invalid && form.get('answerA')?.touched" class="invalid-feedback">
-                Option A is required.
-              </div>
-            </div>
-            <div class="col-12 col-md-6 mt-3">
-              <label class="form-label" for="answerB">Option B*</label>
-              <input class="form-control" type="text" id="answerB" formControlName="answerB"
-                [ngClass]="{'is-invalid': form.get('answerB')?.invalid && form.get('answerB')?.touched}">
-              <div *ngIf="form.get('answerB')?.invalid && form.get('answerB')?.touched" class="invalid-feedback">
-                Option B is required.
-              </div>
-            </div>
-            <div class="col-12 col-md-6 mt-3">
-              <label class="form-label" for="answerC">Option C*</label>
-              <input class="form-control" type="text" id="answerC" formControlName="answerC"
-                [ngClass]="{'is-invalid': form.get('answerC')?.invalid && form.get('answerC')?.touched}">
-              <div *ngIf="form.get('answerC')?.invalid && form.get('answerC')?.touched" class="invalid-feedback">
-                Option C is required.
-              </div>
-            </div>
-            <div class="col-12 col-md-6 mt-3">
-              <label class="form-label" for="answerD">Option D*</label>
-              <input class="form-control" type="text" id="answerD" formControlName="answerD"
-                [ngClass]="{'is-invalid': form.get('answerD')?.invalid && form.get('answerD')?.touched}">
-              <div *ngIf="form.get('answerD')?.invalid && form.get('answerD')?.touched" class="invalid-feedback">
-                Option D is required.
-              </div>
-            </div>
+        <div class="col-12 col-md-6 mb-3">
+          <label class="form-label" for="answerC">Option C*</label>
+          <input class="form-control text-dark" type="text" id="answerC" formControlName="answerC"
+            [ngClass]="{'is-invalid': form.get('answerC')?.invalid && form.get('answerC')?.touched}">
+          <div *ngIf="form.get('answerC')?.invalid && form.get('answerC')?.touched" class="invalid-feedback">
+            Option C is required.
           </div>
         </div>
 
-        <div class="col-12" *ngIf="showCorrectAnswer">
-          <label class="form-label" for="correctAnswer">Correct Answer*</label>
-          <select class="form-select" [multiple]="this.form.get('questionType')?.value === 'Multiple Choice'"
-            id="correctAnswer" formControlName="correctAnswer">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-          </select>
-        </div>
-
-        <div class="col-12" *ngIf="showCorrectAnswerText">
-          <label class="form-label" for="correctAnswerText">Correct Answer*</label>
-          <input class="form-control" type="text" id="correctAnswerText" formControlName="correctAnswerText"
-            [ngClass]="{'is-invalid': form.get('correctAnswerText')?.invalid && form.get('correctAnswerText')?.touched}">
-          <div *ngIf="form.get('correctAnswerText')?.invalid && form.get('correctAnswerText')?.touched"
-            class="invalid-feedback">
-            Correct answer is required.
+        <div class="col-12 col-md-6 mb-3">
+          <label class="form-label" for="answerD">Option D*</label>
+          <input class="form-control text-dark" type="text" id="answerD" formControlName="answerD"
+            [ngClass]="{'is-invalid': form.get('answerD')?.invalid && form.get('answerD')?.touched}">
+          <div *ngIf="form.get('answerD')?.invalid && form.get('answerD')?.touched" class="invalid-feedback">
+            Option D is required.
           </div>
         </div>
 
+      </div>
 
+      <div class="col-12 mb-3" *ngIf="showCorrectAnswer">
+        <label class="form-label" for="correctAnswer">Correct Answer*</label>
+        <select class="form-select" [multiple]="this.form.get('questionType')?.value === 'Multiple Choice'"
+          id="correctAnswer" formControlName="correctAnswer">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+      </div>
+
+      <div class="mb-3" *ngIf="showCorrectAnswerText">
+        <label class="form-label" for="correctAnswerText">Correct Answer*</label>
+        <input class="form-control text-dark" type="text" id="correctAnswerText" formControlName="correctAnswerText"
+          [ngClass]="{'is-invalid': form.get('correctAnswerText')?.invalid && form.get('correctAnswerText')?.touched}">
+        <div *ngIf="form.get('correctAnswerText')?.invalid && form.get('correctAnswerText')?.touched"
+          class="invalid-feedback">
+          Correct answer is required.
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-12 col-md-6">
           <label class="form-label">Tags:</label>
-          <ng-multiselect-dropdown [placeholder]="'Select Tags'"
-            [settings]="{singleSelection: false,idField: 'id',textField: 'name',itemsShowLimit: 3,allowSearchFilter: true}"
-            [data]="tagsList" formControlName="tags">
+          <ng-multiselect-dropdown [placeholder]="'Select Tags'" [settings]="dropdownSettings" [data]="tagsList"
+            formControlName="tags">
           </ng-multiselect-dropdown>
         </div>
 
         <div class="col-12 col-md-6">
           <label class="form-label">Quizzes:</label>
-          <ng-multiselect-dropdown [placeholder]="'Select Quizzes'"
-            [settings]="{singleSelection: false,idField: 'id',textField: 'name', itemsShowLimit: 3,allowSearchFilter: true}"
-            [data]="quizList" formControlName="quizzes">
+          <ng-multiselect-dropdown [placeholder]="'Select Quizzes'" [settings]=" {singleSelection: false,idField: 'id' ,textField: 'name' , itemsShowLimit: 3, allowSearchFilter:
+          true}" [data]="quizList" formControlName="quizzes">
           </ng-multiselect-dropdown>
         </div>
+      </div>
 
-        <div class="col-12 mt-5">
-          <app-back></app-back>
-          <app-delete [itemId]="id" mode="question" *ngIf="id > 0"></app-delete>
-          <app-save [disabled]="form.invalid"></app-save>
-        </div>
+      <div class="mt-5 d-flex justify-content-between align-items-center">
+        <app-back></app-back>
+        <app-delete [itemId]="id" mode="question" *ngIf="id > 0"></app-delete>
+        <app-save [disabled]="form.invalid"></app-save>
+      </div>
 
-      </form>
-    </div>
+    </form>
   </div>
-</section>
+</div>
