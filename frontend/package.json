@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot --output-path=dist/ && npm run scss",
+    "build": "ng build --aot --output-path=dist/browser/ && npm run scss",
     "watch": "ng build --watch --configuration development",
     "scss": "sass src/styles.scss src/styles.css",
     "test": "ng test"
