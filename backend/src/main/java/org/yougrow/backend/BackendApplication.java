@@ -45,7 +45,7 @@ public class BackendApplication {
                         new Category("History", "Explore key moments and figures from history. Challenge your knowledge and uncover fascinating facts!", encodedPassword, "#0808EB"),
                         new Category("Sports", "Test your knowledge of sports, athletes, and iconic moments from around the world.", encodedPassword, "#04DADA"),
                         new Category("Technology", "Discover the coolest tech innovations and trends shaping the future.", encodedPassword, "#0DDD91"),
-                        new Category("Entertainment", "Test your knowledge of iconic moments and famous personalities, diving into the world of movies, music, and pop culture.", encodedPassword, "#A34700")
+                        new Category("Entertainment", "This category dives into the world of movies, music, and pop culture, testing your knowledge of iconic moments and famous personalities.", encodedPassword, "#A34700")
                 );
                 categories.forEach(categoryService::addCategory);
 
@@ -72,7 +72,7 @@ public class BackendApplication {
                 // Quizzes
                 List<Quiz> quizzes = Arrays.asList(
                         new Quiz("General Science Quiz", "Test your knowledge of general science.", encodedPassword, true),
-                        new Quiz("History Quiz", "Quiz about history knowledge", encodedPassword, false),
+                        new Quiz("History Quiz", null, encodedPassword, false),
                         new Quiz("Sports Quiz", "Test your sports knowledge.", encodedPassword, true),
                         new Quiz("Tech Innovations Quiz", "How much do you know about technology?", encodedPassword, false),
                         new Quiz("Movie Trivia Quiz", "Guess the movies based on the clues.", encodedPassword, true),
@@ -92,6 +92,7 @@ public class BackendApplication {
                 quizzes.get(2).setCategory(categories.get(2)); // Sports
                 quizzes.get(3).setCategory(categories.get(3)); // Technology
                 quizzes.get(4).setCategory(categories.get(4)); // Entertainment
+
                 quizzes.get(5).setCategory(categories.get(4)); //Entertainment
                 quizzes.get(6).setCategory(categories.get(4)); //Entertainment
                 quizzes.get(7).setCategory(categories.get(1)); //History
@@ -181,6 +182,7 @@ public class BackendApplication {
                         new Question("In which game do players explore a galaxy with planets, spaceships, and alien races?", encodedPassword, "Single Choice", "A", "Mass Effect", "Starcraft", "Destiny", "Elite Dangerous", false),
                         new Question("What is the name of the princess in the \"Super Mario\" series?", encodedPassword, "Single Choice", "D", "Princess Zelda", "Princess Daisy", "Princess Rosalina", "Princess Peach", false),
                         new Question("Which game allows players to explore ancient Greece as a mercenary?", encodedPassword, "Single Choice", "A", "Assassin's Creed Odyssey", "Skyrim", "The Witcher 3", "God of War", false),
+
                         new Question("In which game can you build cities and manage resources?", encodedPassword, "Single Choice", "B", "Stardew Valley", "Cities: Skylines", "Terraria", "The Sims", false),
                         new Question("Which fighting game franchise features characters like Ryu and Ken?", encodedPassword, "Single Choice", "B", "Tekken", "Street Fighter", "Mortal Kombat", "Super Smash Bros.", false)
                 ));
@@ -420,6 +422,9 @@ public class BackendApplication {
                 techQuestions.get(2).setTags(Arrays.asList(tags.get(4), tags.get(11), tags.get(1))); // Tech + Programming + History
                 techQuestions.get(3).setTags(Arrays.asList(tags.get(4), tags.get(11))); // Tech + Programming
                 techQuestions.get(3).setTags(Collections.singletonList(tags.get(11))); // Programming
+
+                // Shuffle questions to randomize order
+                //Collections.shuffle(questions);
 
                 // Save questions
                 questions.forEach(questionService::addQuestion);
