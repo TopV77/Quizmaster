@@ -39,11 +39,6 @@
               "src/styles.css",
               "src/ng-multiselect-dropdown.theme.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-              "src/styles"
-            ]
-          },
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
