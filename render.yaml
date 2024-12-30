@@ -60,4 +60,4 @@ services:
 volumes:
   - name: mysql-data
     mountPath: /var/lib/mysql
-    sizeGB: 10
+    sizeGB: 1
