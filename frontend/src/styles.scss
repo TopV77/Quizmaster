@@ -156,6 +156,7 @@ card-height {
 .form-control {
   border-color: black;
   border-width: 1px;
+  color: black !important;
 }
 
 .form-glass-container {
@@ -242,7 +243,7 @@ input.color-selection {
   padding: 0 !important;
 }
 s
-.rounded-lg {
+.rounded {
   border-radius: 1rem;
 }
 
@@ -277,4 +278,9 @@ tr {
 
 .tag-header {
   font-size: small !important;
+}
+
+textarea.text-dark::placeholder {
+  color: #212529;
+  opacity: 1;
 }
