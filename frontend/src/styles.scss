@@ -1,5 +1,7 @@
-@import "../node_modules/bootswatch/dist/quartz/variables";
+$body-bg-image: #f8f9fa;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootswatch/dist/quartz/variables";
 @import "../node_modules/bootswatch/dist/quartz/bootswatch";
 
 @font-face {
