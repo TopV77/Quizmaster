@@ -23,7 +23,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/questions")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://quizmaster-k1ej.onrender.com")
 @RequiredArgsConstructor
 public class QuestionController {
 
