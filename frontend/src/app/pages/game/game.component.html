@@ -58,10 +58,10 @@
 
         <!-- Final Screen -->
         <ng-template #finalScreen>
-          <h3 class="fs-2 mb-4">Quiz Results</h3>
-          <div class="table-responsive" style="box-shadow: 
-            12px 12px 16px 0 rgba(0, 0, 0, 0.25),
-            -8px -8px 12px 0 rgba(255, 255, 255, 0.3) !important;">
+          <h3 class="fs-2 mb-4" style="box-shadow: 
+          12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+          -8px -8px 12px 0 rgba(255, 255, 255, 0.3) !important;">Quiz Results</h3>
+          <div class="table-responsive">
             <table class="table align-middle text-center">
               <thead class="table-primary">
                 <tr>
@@ -76,7 +76,7 @@
                     <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
                   </td>
                   <td class="py-3">{{ answer.correctAnswer }}</td>
-                  <td class="py-3" [class.text-success]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                  <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
                     {{ answer.answerGiven }}
                   </td>
                 </tr>
