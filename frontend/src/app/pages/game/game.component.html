@@ -52,31 +52,29 @@
 
         <!-- Final Screen -->
         <ng-template #finalScreen>
-          <div class="w-100">
-            <h3 class="fs-2">Quiz Results</h3>
-            <div class="table-responsive">
-              <table class="table align-middle text-center">
-                <thead class="table-primary">
-                  <tr>
-                    <th scope="col" class="text-start">Question</th>
-                    <th scope="col">Correct Answer</th>
-                    <th scope="col">Your Answer</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let answer of answersGiven; let i = index"
-                    [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
-                    <td class="py-3 text-start">
-                      <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
-                    </td>
-                    <td class="py-3">{{ answer.correctAnswer }}</td>
-                    <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
-                      {{ answer.answerGiven }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <h3 class="fs-2">Quiz Results</h3>
+          <div class="table-responsive">
+            <table class="table align-middle text-center">
+              <thead class="table-primary">
+                <tr>
+                  <th scope="col" class="text-start">Question</th>
+                  <th scope="col">Correct Answer</th>
+                  <th scope="col">Your Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let answer of answersGiven; let i = index"
+                  [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
+                  <td class="py-3 text-start">
+                    <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
+                  </td>
+                  <td class="py-3">{{ answer.correctAnswer }}</td>
+                  <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                    {{ answer.answerGiven }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </ng-template>
 
