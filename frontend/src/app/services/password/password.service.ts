@@ -7,7 +7,7 @@ import {AuthResponse} from "../../interfaces/AuthResponse";
   providedIn: 'root'
 })
 export class PasswordService {
-  API_URL: string = "http://localhost:8080/api";
+  API_URL: string = "https://quizmaster-backend-emku.onrender.com/api";
 
   constructor(private httpClient: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { QuizShort } from '../../interfaces/quizShort';
   providedIn: 'root'
 })
 export class QuizService {
-  URL: string = "http://localhost:8080/api/quizzes";
+  URL: string = "https://quizmaster-backend-emku.onrender.com/api/quizzes";
 
   constructor(private httpClient: HttpClient) {
   }

@@ -8,7 +8,7 @@ import {TagShort} from "../../interfaces/tagShort";
   providedIn: 'root'
 })
 export class TagService {
-  URL: string = "http://localhost:8080/api/tags";
+  URL: string = "https://quizmaster-backend-emku.onrender.com/api/tags";
 
   constructor(private httpClient: HttpClient) {
   }

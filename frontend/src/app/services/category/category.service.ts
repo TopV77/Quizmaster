@@ -9,7 +9,7 @@ import { CategoryShort } from '../../interfaces/categoryShort';
 })
 export class CategoryService {
 
-  URL: string = "http://localhost:8080/api/categories";
+  URL: string = "https://quizmaster-backend-emku.onrender.com/api/categories";
 
   constructor(private httpClient: HttpClient) {
   }
