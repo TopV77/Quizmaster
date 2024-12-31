@@ -32,11 +32,11 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/assets/fonts"
+              "src/assets"
             ],
             "styles": [
-              "dist/styles.css",
+              "src/styles.scss",
+              "src/styles.css",
               "src/ng-multiselect-dropdown.theme.scss"
             ],
             "scripts": [
