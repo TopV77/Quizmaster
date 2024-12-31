@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'quiz/create', component: QuizFormComponent},
   {path: 'quiz/:id', component: QuizDetailsComponent},
   {path: 'quiz/edit/:id', component: QuizFormComponent, canActivate: [authGuard]},
-  {path: 'tags', component: TagsComponent},
+  {path: '/tags', component: TagsComponent},
   {path: 'tag/create', component: TagFormComponent},
   {path: 'tag/:id', component: TagDetailsComponent},
   {path: 'tag/edit/:id', component: TagFormComponent},
