@@ -30,25 +30,19 @@
           <h3 class="text-center mb-4">{{ currentQuestions[questionPointer].question }}</h3>
 
           <!-- Single Choice -->
-          <app-question-single-choice
-            *ngIf="currentQuestions[questionPointer].questionType === 'Single Choice'"
+          <app-question-single-choice *ngIf="currentQuestions[questionPointer].questionType === 'Single Choice'"
             [currentQuestion]="currentQuestions[questionPointer]"
-            (submitSelectedAnswer)="onAnswerSubmitted($event)"
-          ></app-question-single-choice>
+            (submitSelectedAnswer)="onAnswerSubmitted($event)"></app-question-single-choice>
 
           <!-- Multiple Choice -->
-          <app-question-multiple-choice
-            *ngIf="currentQuestions[questionPointer].questionType === 'Multiple Choice'"
+          <app-question-multiple-choice *ngIf="currentQuestions[questionPointer].questionType === 'Multiple Choice'"
             [currentQuestion]="currentQuestions[questionPointer]"
-            (answerSelected)="onAnswerSubmitted($event)"
-          ></app-question-multiple-choice>
+            (answerSelected)="onAnswerSubmitted($event)"></app-question-multiple-choice>
 
           <!-- Text Input -->
-          <app-question-text-input
-            *ngIf="currentQuestions[questionPointer].questionType === 'Text Input'"
+          <app-question-text-input *ngIf="currentQuestions[questionPointer].questionType === 'Text Input'"
             [currentQuestion]="currentQuestions[questionPointer]"
-            (submitSelectedAnswer)="onAnswerSubmitted($event)"
-          ></app-question-text-input>
+            (submitSelectedAnswer)="onAnswerSubmitted($event)"></app-question-text-input>
 
           <div class="text-center mt-2">
             <span class="bg-transparent fs-5">Question: {{ questionPointer + 1 }} / {{ currentQuestions.length }}</span>
@@ -58,30 +52,33 @@
 
         <!-- Final Screen -->
         <ng-template #finalScreen>
-          <h3 class="fs-2">Quiz Results</h3>
-          <div class="table-responsive">
-            <table class="table align-middle text-center">
-              <thead class="table-primary">
-                <tr>
-                  <th scope="col" class="text-start">Question</th>
-                  <th scope="col">Correct Answer</th>
-                  <th scope="col">Your Answer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let answer of answersGiven; let i = index" [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
-                  <td class="py-3 text-start">
-                    <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
-                  </td>
-                  <td class="py-3">{{ answer.correctAnswer }}</td>
-                  <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
-                    {{ answer.answerGiven }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="w-100">
+            <h3 class="fs-2">Quiz Results</h3>
+            <div class="table-responsive">
+              <table class="table align-middle text-center">
+                <thead class="table-primary">
+                  <tr>
+                    <th scope="col" class="text-start">Question</th>
+                    <th scope="col">Correct Answer</th>
+                    <th scope="col">Your Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let answer of answersGiven; let i = index"
+                    [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
+                    <td class="py-3 text-start">
+                      <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
+                    </td>
+                    <td class="py-3">{{ answer.correctAnswer }}</td>
+                    <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                      {{ answer.answerGiven }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </ng-template>        
+        </ng-template>
 
       </div>
     </div>
