@@ -17,7 +17,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/tags")
-@CrossOrigin("https://quizmaster-k1ej.onrender.com/")
+@CrossOrigin("https://quizmaster-k1ej.onrender.com")
 @RequiredArgsConstructor
 public class TagController {
 
