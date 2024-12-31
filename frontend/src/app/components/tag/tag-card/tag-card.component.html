@@ -1,6 +1,6 @@
 <div class="card text-center border-primary small-on-mobile" *ngIf="tag">
   <div class="card-header bg-transparent" style="max-height: 3.5rem;">
-    <h5 class="card-title fs-5 truncate-text">{{ tag.name }}</h5>
+    <h5 class="card-title fs-5" [ngClass]="{'truncate-text': tag.name.length > 10}">{{ tag.name }}</h5>
   </div>
   <div class="card-footer bg-transparent px-3 py-2 d-flex justify-content-end align-items-center gap-1" style="height: 5rem">
     <app-edit url="/tag/edit" [itemId]="tag.id!"></app-edit>

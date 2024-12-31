@@ -113,6 +113,13 @@ card-height {
   font-size: 1.25rem;
 }
 
+.card .truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
 .color-box {
   width: 50px;
   height: 50px;
