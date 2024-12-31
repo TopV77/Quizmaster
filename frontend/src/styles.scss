@@ -1,4 +1,6 @@
-
+@import "styles/c-quartz/variables";
+@import "styles/bootst/bootstrap/scss/bootstrap.scss";
+@import "styles/c-quartz/bootswatch";
 
 @font-face {
   font-family: "MyCustomFont";
@@ -71,6 +73,35 @@ button:disabled {
   background: linear-gradient(-45deg, #cdd9f6, #a4bff6) !important;
   border-radius: 24px;
   overflow: hidden;
+  @include glass(0.3, rgba($black, 0.6));
+
+  &-header,
+  &-body {
+    color: white;
+  }
+
+  &.bg-light {
+    .card-header,
+    .card-body {
+      color: $gray-800;
+    }
+  }
+
+  &.border {
+    @each $color, $value in $theme-colors {
+      &-#{$color} {
+        @include glass(0.3, rgba($value, 0.5));
+        .card-header {
+          background-color: $value !important;
+          border-bottom: none;
+
+          @if ($color == light) {
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
 
 card-height {
@@ -161,9 +192,13 @@ input.color-selection {
   height: 30px;
 }
 
-.invalid-feedback {}
+.invalid-feedback {
+  border-color: $red !important;
+  color: $red;
+}
 
 .is-invalid {
+  border-color: $red !important;
 }
 
 .logo {
@@ -204,7 +239,7 @@ input.color-selection {
 
 .navbar {
   background: linear-gradient(rgb(29, 101, 225), #427df3) !important;
-  color: green;
+  color: $white;
   padding: 0 !important;
 }
 s
