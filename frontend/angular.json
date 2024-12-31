@@ -95,7 +95,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "dist/browser/_redirects"
             ],
             "styles": [
               "src/styles.css"
