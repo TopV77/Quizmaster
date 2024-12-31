@@ -2,7 +2,7 @@
 [ngClass]="{'small-on-mobile': mode === 'tag'}">
   <div class="d-flex flex-column h-100">
     <div class="card-header bg-transparent" style="max-height: 3.5rem;">
-      <h4 class="card-title" [ngClass]="{'fs-5': mode === 'tag'}">Create new {{ mode }}</h4>
+      <h4 class="card-title" [ngClass]="{'fs-5': mode === 'tag'}">New {{ mode }}</h4>
     </div>
     <div class="card-body flex-fill justify-content-center align-content-center" *ngIf="mode !== 'tag'">
       <i [routerLink]="setLinkUrl(mode)" class="fa-solid fa-plus display-6 pointer" style="color: #272525;"
