@@ -96,7 +96,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/_redirects"
+              "dist/browser/_redirects"
             ],
             "styles": [
               "src/styles.css"
