@@ -59,27 +59,31 @@
         <!-- Final Screen -->
         <ng-template #finalScreen>
           <h3 class="fs-2 mb-4">Quiz Results</h3>
-          <div class="table-responsive">
-            <table class="table table-striped">
+          <div class="table-responsive" style="box-shadow: 
+            12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+            -8px -8px 12px 0 rgba(255, 255, 255, 0.3) !important;">
+            <table class="table align-middle text-center">
+              <thead class="table-primary">
+                <tr>
+                  <th scope="col" class="text-start">Question</th>
+                  <th scope="col">Correct Answer</th>
+                  <th scope="col">Your Answer</th>
+                </tr>
+              </thead>
               <tbody>
-              <tr *ngFor="let answer of answersGiven; let i = index">
-                <!-- Frage Details -->
-                <td class="text-start">
-                  <p class="mb-2">
-                    <strong>Question {{ i + 1 }}:</strong> {{ answer.question }}
-                  </p>
-                  <p class="mb-2">
-                    <strong>Correct answer:</strong> {{ answer.correctAnswer }}
-                  </p>
-                  <p [class.text-success]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
-                    <strong>Your answer:</strong> {{ answer.answerGiven }}
-                  </p>
-                </td>
-              </tr>
+                <tr *ngFor="let answer of answersGiven; let i = index" [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
+                  <td class="py-3 text-start">
+                    <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
+                  </td>
+                  <td class="py-3">{{ answer.correctAnswer }}</td>
+                  <td class="py-3" [class.text-success]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                    {{ answer.answerGiven }}
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
-        </ng-template>
+        </ng-template>        
 
       </div>
     </div>
