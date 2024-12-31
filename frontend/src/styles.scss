@@ -1,6 +1,6 @@
-@import "../node_modules/bootswatch/dist/quartz/variables";
+@import "styles/c-quartz/variables";
 @import "../node_modules/bootstrap/scss/bootstrap";
-@import "../node_modules/bootswatch/dist/quartz/bootswatch";
+@import "styles/c-quartz/bootswatch";
 
 @font-face {
   font-family: "MyCustomFont";
