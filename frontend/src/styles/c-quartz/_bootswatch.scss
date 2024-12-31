@@ -40,6 +40,28 @@ body {
   }
 }
 
+// Tables
+
+.table-secondary {
+  --bs-table-hover-color: $white;
+}
+
+.table-light {
+  --bs-table-bg: #cbdaf6 !important;
+  --bs-table-border-color: #cbdaf6 !important;
+  --bs-table-striped-bg: #cbdaf6 !important;
+  --bs-table-hover-bg: #cbdaf6 !important;
+
+}
+
+.table-dark {
+  --bs-table-bg: #a3bef0 !important;
+  --bs-table-border-color: #a3bef0 !important;
+  --bs-table-striped-bg: #a3bef0 !important;
+  --bs-table-hover-bg: #a3bef0 !important;
+  --bs-table-color: rgb(207, 13, 13) !important;
+}
+
 // Buttons
 
 .btn {
