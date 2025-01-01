@@ -58,7 +58,7 @@
               <table class="table align-middle text-center">
                 <thead class="table-primary">
                   <tr>
-                    <th scope="col" class="text-start fs-6">Question</th>
+                    <th scope="col" class="text-start" style="font-size: 0.875rem;">Question</th>
                     <th scope="col">Correct Answer</th>
                     <th scope="col">Your Answer</th>
                   </tr>
@@ -66,11 +66,11 @@
                 <tbody>
                   <tr *ngFor="let answer of answersGiven; let i = index"
                     [ngClass]="{ 'table-light': i % 2 === 0, 'table-dark': i % 2 !== 0 }">
-                    <td class="py-3 text-start">
+                    <td class="py-3 px-1 text-start">
                       <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
                     </td>
                     <td class="py-3">{{ answer.correctAnswer }}</td>
-                    <td class="py-3" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                    <td class="py-3 px-1" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
                       {{ answer.answerGiven }}
                     </td>
                   </tr>
