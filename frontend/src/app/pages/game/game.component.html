@@ -70,7 +70,7 @@
                       <p class="mb-0"><strong>Q{{ i + 1 }}:</strong> {{ answer.question }}</p>
                     </td>
                     <td class="py-3">{{ answer.correctAnswer }}</td>
-                    <td class="py-3 px-1" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
+                    <td class="py-3 px-1 break-word-mobile" [class.text-primary]="answer.isCorrect" [class.text-danger]="!answer.isCorrect">
                       {{ answer.answerGiven }}
                     </td>
                   </tr>
